@@ -4,241 +4,248 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Brandon Rubin Mora Hernández | Portafolio</title>
-  <link rel="stylesheet" href="styles.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23fff' font-family='Poppins'>BR</text></svg>" type="image/svg+xml">
   <style>
     /* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #f8f9fa;
-  color: #333;
-  line-height: 1.6;
-}
+    /* Animación de entrada */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeIn 1s ease forwards;
+    }
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .experience { animation-delay: 0.2s; }
+    .projects { animation-delay: 0.4s; }
+    .skills { animation-delay: 0.6s; }
 
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
-}
+    /* Header */
+    .header {
+      background-color: #0d1b2a;
+      color: #ffffff;
+      text-align: center;
+      padding: 60px 20px;
+      margin-bottom: 40px;
+    }
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .location {
+      font-size: 1.1rem;
+      color: #e0e1dd;
+      margin-bottom: 8px;
+    }
+    .tagline {
+      font-size: 1.1rem;
+      color: #a9b1d2;
+      font-weight: 400;
+    }
 
-/* Animación de entrada */
-.fade-in {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 1s ease forwards;
-}
+    /* Secciones generales */
+    .section {
+      background-color: white;
+      padding: 40px;
+      margin-bottom: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+    .section h2 {
+      font-size: 1.8rem;
+      color: #1b263b;
+      margin-bottom: 25px;
+      text-align: center;
+    }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+    /* Tarjetas de experiencia */
+    .exp-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .exp-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 20px;
+      background-color: #f8fafc;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .exp-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .exp-card h3 {
+      font-size: 1.4rem;
+      color: #1e40af;
+      margin-bottom: 8px;
+    }
+    .exp-role {
+      font-weight: 600;
+      color: #334155;
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+    .exp-duration {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .exp-desc {
+      font-size: 0.95rem;
+      color: #475569;
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+    .tech-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      justify-content: start;
+    }
+    .tech-icons img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      border-radius: 4px;
+      background: white;
+      padding: 2px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
 
-/* Delay para animaciones escalonadas */
-.experience { animation-delay: 0.2s; }
-.project { animation-delay: 0.4s; }
-.skills { animation-delay: 0.6s; }
+    /* Proyectos */
+    .project-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .project-card {
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 20px;
+      background-color: #f1f3f5;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    .project-card h3 {
+      font-size: 1.5rem;
+      color: #1e40af;
+      margin-bottom: 10px;
+    }
+    .project-desc {
+      font-size: 0.95rem;
+      color: #555;
+      margin-bottom: 12px;
+    }
+    .tech {
+      font-size: 0.9rem;
+      color: #64748b;
+      margin-bottom: 15px;
+    }
+    .btn {
+      display: inline-block;
+      background-color: #1b263b;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+    .btn:hover {
+      background-color: transparent;
+      color: #1b263b;
+      border: 2px solid #1b263b;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
 
-/* Header */
-.header {
-  background-color: #0d1b2a;
-  color: #ffffff;
-  text-align: center;
-  padding: 60px 20px;
-  margin-bottom: 40px;
-}
+    /* Habilidades */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 15px;
+    }
+    .skill-tag {
+      background-color: #e0e7ff;
+      color: #4338ca;
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      border: 1px solid #c7d2fe;
+      transition: all 0.3s ease;
+    }
+    .skill-tag:hover {
+      background-color: #4338ca;
+      color: white;
+      transform: scale(1.05);
+    }
 
-.header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
+    /* Footer */
+    .footer {
+      background-color: #1b263b;
+      color: #e0e1dd;
+      text-align: center;
+      padding: 30px 20px;
+      font-size: 0.95rem;
+    }
+    .footer a {
+      color: #a9b1d2;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .footer a:hover {
+      color: #ffffff;
+      text-decoration: underline;
+    }
 
-.location {
-  font-size: 1.1rem;
-  color: #e0e1dd;
-  margin-bottom: 8px;
-}
-
-.tagline {
-  font-size: 1.1rem;
-  color: #a9b1d2;
-  font-weight: 400;
-}
-
-/* Secciones generales */
-.section {
-  background-color: white;
-  padding: 40px;
-  margin-bottom: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-}
-
-.section h2 {
-  font-size: 1.8rem;
-  color: #1b263b;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* Experiencia */
-.experience p {
-  font-size: 1.05rem;
-  color: #4b5563;
-  text-align: justify;
-}
-
-/* Proyecto destacado */
-.project-card {
-  background-color: #f1f3f5;
-  padding: 25px;
-  border-radius: 10px;
-  text-align: center;
-  border: 1px solid #dfe3e8;
-}
-
-.project-card h3 {
-  font-size: 1.6rem;
-  color: #1b263b;
-  margin-bottom: 12px;
-}
-
-.project-desc {
-  font-size: 1.05rem;
-  color: #555;
-  margin-bottom: 15px;
-}
-
-.tech {
-  font-size: 0.95rem;
-  color: #4b5563;
-  margin-bottom: 20px;
-}
-
-.btn {
-  display: inline-block;
-  background-color: #1b263b;
-  color: white;
-  padding: 12px 28px;
-  text-decoration: none;
-  border-radius: 6px;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.btn:hover {
-  background-color: transparent;
-  color: #1b263b;
-  border-color: #1b263b;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Habilidades */
-.skills-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 15px;
-}
-
-.skill-tag {
-  background-color: #e0e7ff;
-  color: #4338ca;
-  padding: 8px 16px;
-  border-radius: 50px;
-  font-size: 0.95rem;
-  font-weight: 500;
-  border: 1px solid #c7d2fe;
-  transition: all 0.3s ease;
-}
-
-.skill-tag:hover {
-  background-color: #4338ca;
-  color: white;
-  transform: scale(1.05);
-}
-
-/* Footer */
-.footer {
-  background-color: #1b263b;
-  color: #e0e1dd;
-  text-align: center;
-  padding: 30px 20px;
-  font-size: 0.95rem;
-}
-
-.footer a {
-  color: #a9b1d2;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.footer a:hover {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .header h1 {
-    font-size: 2rem;
-  }
-
-  .section {
-    padding: 30px 20px;
-  }
-
-  .section h2 {
-    font-size: 1.6rem;
-  }
-
-  .project-card {
-    padding: 20px;
-  }
-
-  .btn {
-    padding: 10px 24px;
-    font-size: 0.95rem;
-  }
-
-  .skill-tag {
-    font-size: 0.9rem;
-    padding: 6px 12px;
-  }
-}
-
-@media (max-width: 480px) {
-  .header {
-    padding: 40px 15px;
-  }
-
-  .header h1 {
-    font-size: 1.8rem;
-  }
-
-  .section {
-    padding: 25px 15px;
-  }
-
-  .footer {
-    padding: 20px;
-    font-size: 0.9rem;
-  }
-}
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header h1 { font-size: 2rem; }
+      .section { padding: 30px 20px; }
+      .section h2 { font-size: 1.6rem; }
+      .exp-card, .project-card { padding: 18px; }
+      .btn { padding: 9px 18px; }
+    }
+    @media (max-width: 480px) {
+      .header { padding: 40px 15px; }
+      .header h1 { font-size: 1.8rem; }
+      .section { padding: 25px 15px; }
+      .footer { padding: 20px; font-size: 0.9rem; }
+    }
   </style>
 </head>
 <body>
@@ -257,24 +264,115 @@ body {
 
     <!-- Experiencia -->
     <section class="experience section fade-in">
-      <h2>Experiencia</h2>
-      <p>
-        Ingeniero con experiencia en desarrollo backend utilizando tecnologías como Java Spring Boot, Oracle PL/SQL y .NET. 
-        He participado en proyectos con arquitectura multicapa y microservicios, desarrollando APIs RESTful robustas. 
-        Manejo eficiente de Hibernate, integración con bases de datos Oracle y herramientas como EXTJS para interfaces modulares.
-      </p>
+      <h2>Experiencia Profesional</h2>
+      <div class="exp-cards">
+        
+        <!-- Empresa 1 -->
+        <div class="exp-card">
+          <h3>TekExperts México</h3>
+          <span class="exp-role">Desarrollador Backend Java</span>
+          <span class="exp-duration">Ene 2023 – Actual</span>
+          <p class="exp-desc">
+            Desarrollo de microservicios con Spring Boot y Oracle PL/SQL. Participación en integración continua y despliegue automatizado en entornos cloud.
+          </p>
+          <div class="tech-icons">
+            <img src=" https://unpkg.com/simple-icons @v14/icons/spring.svg" alt="Spring" title="Spring">
+            <img src="https://unpkg.com/simple-icons @v14/icons/java.svg" alt="Java" title="Java">
+            <img src="https://unpkg.com/simple-icons @v14/icons/oracle.svg" alt="Oracle" title="Oracle">
+            <img src="https://unpkg.com/simple-icons @v14/icons/git.svg" alt="Git" title="Git">
+            <img src="https://unpkg.com/simple-icons @v14/icons/docker.svg" alt="Docker" title="Docker">
+          </div>
+        </div>
+
+        <!-- Empresa 2 -->
+        <div class="exp-card">
+          <h3>Softtek</h3>
+          <span class="exp-role">Ingeniero de Software .NET</span>
+          <span class="exp-duration">Jun 2021 – Dic 2022</span>
+          <p class="exp-desc">
+            Desarrollo de APIs RESTful y mantenimiento de aplicaciones empresariales con arquitectura multicapa usando .NET Core y SQL Server.
+          </p>
+          <div class="tech-icons">
+            <img src="https://unpkg.com/simple-icons @v14/icons/dotnet.svg" alt=".NET" title=".NET">
+            <img src="https://unpkg.com/simple-icons @v14/icons/csharp.svg" alt="C#" title="C#">
+            <img src="https://unpkg.com/simple-icons @v14/icons/sqlserver.svg" alt="SQL Server" title="SQL Server">
+            <img src="https://unpkg.com/simple-icons @v14/icons/rest.svg" alt="REST" title="REST">
+            <img src="https://unpkg.com/simple-icons @v14/icons/azure.svg" alt="Azure" title="Azure">
+          </div>
+        </div>
+
+        <!-- Empresa 3 -->
+        <div class="exp-card">
+          <h3>Cognizant</h3>
+          <span class="exp-role">Analista Programador</span>
+          <span class="exp-duration">Mar 2020 – May 2021</span>
+          <p class="exp-desc">
+            Participé en migración de sistemas legados, desarrollo con Hibernate y optimización de consultas PL/SQL. Uso de metodologías SCRUM.
+          </p>
+          <div class="tech-icons">
+            <img src="https://unpkg.com/simple-icons @v14/icons/oracle.svg" alt="Oracle" title="Oracle">
+            <img src="https://unpkg.com/simple-icons @v14/icons/java.svg" alt="Java" title="Java">
+            <img src="https://unpkg.com/simple-icons @v14/icons/hibernate.svg" alt="Hibernate" title="Hibernate">
+            <img src="https://unpkg.com/simple-icons @v14/icons/jira.svg" alt="Jira" title="Jira">
+            <img src="https://unpkg.com/simple-icons @v14/icons/scrum.svg" alt="SCRUM" title="SCRUM">
+          </div>
+        </div>
+
+        <!-- Empresa 4 -->
+        <div class="exp-card">
+          <h3>Accenture</h3>
+          <span class="exp-role">Desarrollador Full Stack</span>
+          <span class="exp-duration">Ago 2018 – Feb 2020</span>
+          <p class="exp-desc">
+            Trabajo en frontend con EXTJS y backend en Java. Integración de servicios y pruebas unitarias. Colaboración en equipo ágil.
+          </p>
+          <div class="tech-icons">
+            <img src="https://unpkg.com/simple-icons @v14/icons/extjs.svg" alt="EXTJS" title="EXTJS">
+            <img src="https://unpkg.com/simple-icons @v14/icons/java.svg" alt="Java" title="Java">
+            <img src="https://unpkg.com/simple-icons @v14/icons/javascript.svg" alt="JavaScript" title="JavaScript">
+            <img src="https://unpkg.com/simple-icons @v14/icons/css3.svg" alt="CSS" title="CSS">
+            <img src="https://unpkg.com/simple-icons @v14/icons/html5.svg" alt="HTML" title="HTML">
+          </div>
+        </div>
+
+      </div>
     </section>
 
-    <!-- Proyecto Destacado -->
-    <section class="project section fade-in">
-      <h2>Proyecto Destacado</h2>
-      <div class="project-card">
-        <h3>Bitácora de Transacciones</h3>
-        <p class="project-desc">
-          Proyecto académico que simula acciones en una bitácora de transacciones para entornos de desarrollo colaborativo.
-        </p>
-        <p class="tech"><strong>Tecnologías:</strong> PHP, MySQL, CSS</p>
-        <a href=" https://github.com/btabdonpi/Sistema-bitacora " target="_blank" class="btn">Ver en GitHub</a>
+    <!-- Proyectos -->
+    <section class="projects section fade-in">
+      <h2>Proyectos Destacados</h2>
+      <div class="project-cards">
+
+        <!-- Proyecto 1 -->
+        <div class="project-card">
+          <h3>Bitácora de Transacciones</h3>
+          <p class="project-desc">
+            Proyecto académico que simula acciones en una bitácora de transacciones para entornos de desarrollo colaborativo.
+          </p>
+          <p class="tech"><strong>Tecnologías:</strong> PHP, MySQL, CSS</p>
+          <a href="https://github.com/btabdonpi/Sistema-bitacora " target="_blank" class="btn">Ver en GitHub</a>
+        </div>
+
+        <!-- Proyecto 2 (Plantilla) -->
+        <div class="project-card">
+          <h3>Sistema de Inventario API</h3>
+          <p class="project-desc">
+            API REST para gestión de inventario con autenticación JWT y base de datos Oracle. Diseñado con principios de microservicios.
+          </p>
+          <p class="tech"><strong>Tecnologías:</strong> Spring Boot, Oracle, Docker</p>
+          <a href="#" class="btn">Próximamente</a>
+        </div>
+
+        <!-- Proyecto 3 (Plantilla) -->
+        <div class="project-card">
+          <h3>Dashboard Analytics</h3>
+          <p class="project-desc">
+            Panel de visualización de datos en tiempo real consumiendo múltiples APIs internas. Frontend con JavaScript vanilla.
+          </p>
+          <p class="tech"><strong>Tecnologías:</strong> JavaScript, REST, HTML/CSS</p>
+          <a href="#" class="btn">Ver Demo</a>
+        </div>
+
       </div>
     </section>
 
@@ -285,6 +383,7 @@ body {
         <span class="skill-tag">Java</span>
         <span class="skill-tag">Spring Boot</span>
         <span class="skill-tag">Oracle PL/SQL</span>
+        <span class="skill-tag">.NET</span>
         <span class="skill-tag">PHP</span>
         <span class="skill-tag">HTML</span>
         <span class="skill-tag">CSS</span>
@@ -292,6 +391,9 @@ body {
         <span class="skill-tag">Hibernate</span>
         <span class="skill-tag">SCRUM</span>
         <span class="skill-tag">REST</span>
+        <span class="skill-tag">Docker</span>
+        <span class="skill-tag">APIs</span>
+        <span class="skill-tag">EXTJS</span>
       </div>
     </section>
 
