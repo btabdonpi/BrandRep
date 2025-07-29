@@ -41,10 +41,10 @@
     }
 
     .container {
-      width: 90%;
+      width: 85%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 40px;
     }
 
     /* Header Styles */
@@ -87,7 +87,7 @@
     }
 
     .section {
-      margin-bottom: 80px;
+      margin-bottom: 100px;
       opacity: 0;
       transform: translateY(30px);
       animation: fadeUp 0.8s ease-out forwards;
@@ -116,13 +116,13 @@
     .exp-cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
+      gap: 30px;
     }
 
     .exp-card {
       background: var(--bg-card);
       border-radius: var(--border-radius);
-      padding: 30px;
+      padding: 35px;
       transition: var(--transition);
       box-shadow: var(--shadow-sm);
       border: 1px solid rgba(255, 255, 255, 0.05);
@@ -178,13 +178,13 @@
     .tech-icons {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 15px;
       margin-top: 15px;
     }
 
     .tech-icons img {
-      width: 32px;
-      height: 32px;
+      width: 36px;
+      height: 36px;
       object-fit: contain;
       filter: brightness(0.8) saturate(1.2);
       transition: var(--transition);
@@ -199,13 +199,13 @@
     .project-cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 25px;
+      gap: 30px;
     }
 
     .project-card {
       background: var(--bg-card);
       border-radius: var(--border-radius);
-      padding: 30px;
+      padding: 35px;
       transition: var(--transition);
       box-shadow: var(--shadow-sm);
       border: 1px solid rgba(255, 255, 255, 0.05);
@@ -270,16 +270,17 @@
     .skills-grid {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 15px;
       justify-content: center;
+      padding: 10px 0;
     }
 
     .skill-tag {
-      padding: 10px 20px;
+      padding: 12px 24px;
       background: rgba(59, 130, 246, 0.1);
       color: var(--accent-blue);
       border-radius: 50px;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 500;
       backdrop-filter: blur(4px);
       border: 1px solid rgba(59, 130, 246, 0.2);
@@ -311,16 +312,16 @@
     .footer {
       background: rgba(15, 23, 42, 0.8);
       backdrop-filter: blur(10px);
-      padding: 40px 0;
+      padding: 60px 0;
       border-top: 1px solid rgba(255, 255, 255, 0.05);
       text-align: center;
-      margin-top: 40px;
+      margin-top: 60px;
     }
 
     .footer p {
       color: var(--text-secondary);
-      margin-bottom: 12px;
-      font-size: 1rem;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
     }
 
     .footer a {
@@ -365,6 +366,20 @@
     }
 
     /* Responsive Design */
+    @media (max-width: 1200px) {
+      .container {
+        width: 88%;
+        padding: 0 30px;
+      }
+    }
+
+    @media (max-width: 992px) {
+      .container {
+        width: 90%;
+        padding: 0 25px;
+      }
+    }
+
     @media (max-width: 768px) {
       .header {
         padding: 80px 0 40px;
@@ -375,8 +390,8 @@
       }
 
       .section {
-        margin-bottom: 60px;
-        padding: 0 15px;
+        margin-bottom: 80px;
+        padding: 0 20px;
       }
 
       .section h2 {
@@ -384,15 +399,16 @@
       }
 
       .exp-card, .project-card {
-        padding: 25px;
-      }
-
-      .container {
-        width: 95%;
+        padding: 30px 25px;
       }
     }
 
     @media (max-width: 480px) {
+      .container {
+        width: 95%;
+        padding: 0 20px;
+      }
+
       .header h1 {
         font-size: 1.8rem;
       }
@@ -411,6 +427,10 @@
 
       .exp-cards, .project-cards {
         grid-template-columns: 1fr;
+      }
+
+      .section {
+        margin-bottom: 70px;
       }
     }
   </style>
