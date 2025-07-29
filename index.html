@@ -1,255 +1,417 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Brandon Rubin Mora Hernández | Portafolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'><text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle' font-size='20' fill='%23fff' font-family='Poppins'>BR</text></svg>" type="image/svg+xml">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brandon Rubin Mora Hernández - Portafolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
-    /* Reset básico */
+    :root {
+      --bg-primary: #0f172a;
+      --bg-secondary: #1e293b;
+      --bg-card: #1e293b;
+      --text-primary: #e2e8f0;
+      --text-secondary: #94a3b8;
+      --accent-blue: #3b82f6;
+      --accent-purple: #8b5cf6;
+      --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+      --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      --border-radius: 12px;
+      --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: 'Poppins', sans-serif;
-      background-color: #f8f9fa;
-      color: #333;
+      background: var(--bg-primary);
+      color: var(--text-primary);
       line-height: 1.6;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(59, 130, 246, 0.1) 0%, transparent 40%),
+        radial-gradient(circle at 80% 70%, rgba(139, 92, 246, 0.1) 0%, transparent 40%);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
     }
+
     .container {
       width: 90%;
       max-width: 1200px;
       margin: 0 auto;
-      padding: 20px;
+      padding: 0 20px;
     }
 
-    /* Animación de entrada */
-    .fade-in {
+    /* Header Styles */
+    .header {
+      padding: 100px 0 60px;
+      text-align: center;
       opacity: 0;
       transform: translateY(20px);
-      animation: fadeIn 1s ease forwards;
+      animation: fadeUp 0.8s ease-out forwards;
     }
-    @keyframes fadeIn {
+
+    .header h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, #e2e8f0, #94a3b8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .location {
+      font-size: 1.2rem;
+      color: var(--accent-blue);
+      margin-bottom: 20px;
+      font-weight: 500;
+    }
+
+    .tagline {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    /* Main Styles */
+    .main {
+      padding: 20px 0;
+    }
+
+    .section {
+      margin-bottom: 80px;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.8s ease-out forwards;
+    }
+
+    .section h2 {
+      font-size: 2rem;
+      margin-bottom: 40px;
+      position: relative;
+      display: inline-block;
+      padding-bottom: 10px;
+    }
+
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+      border-radius: 2px;
+    }
+
+    /* Experience Styles */
+    .exp-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+
+    .exp-card {
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      transform: translateY(0);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-blue), var(--accent-purple));
+    }
+
+    .exp-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(59, 130, 246, 0.2);
+    }
+
+    .exp-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 8px;
+      color: var(--text-primary);
+    }
+
+    .exp-role {
+      display: block;
+      font-size: 1rem;
+      color: var(--accent-blue);
+      margin-bottom: 8px;
+      font-weight: 500;
+    }
+
+    .exp-duration {
+      display: block;
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 15px;
+      font-style: italic;
+    }
+
+    .exp-desc {
+      color: var(--text-secondary);
+      margin-bottom: 20px;
+      line-height: 1.7;
+    }
+
+    .tech-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 15px;
+    }
+
+    .tech-icons img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      filter: brightness(0.8) saturate(1.2);
+      transition: var(--transition);
+    }
+
+    .tech-icons img:hover {
+      filter: brightness(1) saturate(1.5);
+      transform: scale(1.1);
+    }
+
+    /* Projects Styles */
+    .project-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      background: var(--bg-card);
+      border-radius: var(--border-radius);
+      padding: 30px;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--accent-purple), var(--accent-blue));
+    }
+
+    .project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: var(--shadow-lg);
+      border-color: rgba(139, 92, 246, 0.2);
+    }
+
+    .project-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+
+    .project-desc {
+      color: var(--text-secondary);
+      margin-bottom: 15px;
+      line-height: 1.7;
+    }
+
+    .tech {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: 500;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 7px 20px rgba(59, 130, 246, 0.4);
+    }
+
+    /* Skills Styles */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+    }
+
+    .skill-tag {
+      padding: 10px 20px;
+      background: rgba(59, 130, 246, 0.1);
+      color: var(--accent-blue);
+      border-radius: 50px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      backdrop-filter: blur(4px);
+      border: 1px solid rgba(59, 130, 246, 0.2);
+      transition: var(--transition);
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .skill-tag:nth-child(2n) {
+      color: var(--accent-purple);
+      background: rgba(139, 92, 246, 0.1);
+      border-color: rgba(139, 92, 246, 0.2);
+      animation-delay: 0.5s;
+    }
+
+    .skill-tag:nth-child(3n) {
+      color: #60a5fa;
+      background: rgba(96, 165, 250, 0.1);
+      border-color: rgba(96, 165, 250, 0.2);
+      animation-delay: 1s;
+    }
+
+    .skill-tag:hover {
+      transform: translateY(-5px);
+      background: rgba(59, 130, 246, 0.2);
+      box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2);
+    }
+
+    /* Footer Styles */
+    .footer {
+      background: rgba(15, 23, 42, 0.8);
+      backdrop-filter: blur(10px);
+      padding: 40px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .footer p {
+      color: var(--text-secondary);
+      margin-bottom: 12px;
+      font-size: 1rem;
+    }
+
+    .footer a {
+      color: var(--accent-blue);
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .footer a:hover {
+      color: var(--accent-purple);
+      text-decoration: underline;
+    }
+
+    /* Animations */
+    @keyframes fadeUp {
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-    .experience { animation-delay: 0.2s; }
-    .projects { animation-delay: 0.4s; }
-    .skills { animation-delay: 0.6s; }
 
-    /* Header */
-    .header {
-      background-color: #0d1b2a;
-      color: #ffffff;
-      text-align: center;
-      padding: 60px 20px;
-      margin-bottom: 40px;
-    }
-    .header h1 {
-      font-size: 2.5rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-    .location {
-      font-size: 1.1rem;
-      color: #e0e1dd;
-      margin-bottom: 8px;
-    }
-    .tagline {
-      font-size: 1.1rem;
-      color: #a9b1d2;
-      font-weight: 400;
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
     }
 
-    /* Secciones generales */
-    .section {
-      background-color: white;
-      padding: 40px;
-      margin-bottom: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    }
-    .section h2 {
-      font-size: 1.8rem;
-      color: #1b263b;
-      margin-bottom: 25px;
-      text-align: center;
+    /* Staggered animations */
+    .experience {
+      animation-delay: 0.2s;
     }
 
-    /* Tarjetas de experiencia */
-    .exp-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    .exp-card {
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 20px;
-      background-color: #f8fafc;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .exp-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-    .exp-card h3 {
-      font-size: 1.4rem;
-      color: #1e40af;
-      margin-bottom: 8px;
-    }
-    .exp-role {
-      font-weight: 600;
-      color: #334155;
-      font-size: 1.1rem;
-      margin-bottom: 8px;
-    }
-    .exp-duration {
-      font-size: 0.9rem;
-      color: #64748b;
-      margin-bottom: 12px;
-      display: block;
-    }
-    .exp-desc {
-      font-size: 0.95rem;
-      color: #475569;
-      margin-bottom: 15px;
-      text-align: justify;
-    }
-    .tech-icons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: start;
-    }
-    .tech-icons img {
-      width: 40px;
-      height: 40px;
-      object-fit: contain;
-      border-radius: 6px;
-      background: white;
-      padding: 3px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.15);
-      transition: transform 0.2s ease;
-    }
-    
-    .tech-icons img:hover {
-      transform: scale(1.1);
+    .projects {
+      animation-delay: 0.4s;
     }
 
-    /* Proyectos */
-    .project-cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
-    }
-    .project-card {
-      border: 1px solid #e2e8f0;
-      border-radius: 10px;
-      padding: 20px;
-      background-color: #f1f3f5;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-    }
-    .project-card h3 {
-      font-size: 1.5rem;
-      color: #1e40af;
-      margin-bottom: 10px;
-    }
-    .project-desc {
-      font-size: 0.95rem;
-      color: #555;
-      margin-bottom: 12px;
-    }
-    .tech {
-      font-size: 0.9rem;
-      color: #64748b;
-      margin-bottom: 15px;
-    }
-    .btn {
-      display: inline-block;
-      background-color: #1b263b;
-      color: white;
-      padding: 10px 20px;
-      text-decoration: none;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      font-size: 0.95rem;
-    }
-    .btn:hover {
-      background-color: transparent;
-      color: #1b263b;
-      border: 2px solid #1b263b;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    .skills {
+      animation-delay: 0.6s;
     }
 
-    /* Habilidades */
-    .skills-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 12px;
-      margin-top: 15px;
-    }
-    .skill-tag {
-      background-color: #e0e7ff;
-      color: #4338ca;
-      padding: 8px 16px;
-      border-radius: 50px;
-      font-size: 0.95rem;
-      font-weight: 500;
-      border: 1px solid #c7d2fe;
-      transition: all 0.3s ease;
-    }
-    .skill-tag:hover {
-      background-color: #4338ca;
-      color: white;
-      transform: scale(1.05);
-    }
-
-    /* Footer */
-    .footer {
-      background-color: #1b263b;
-      color: #e0e1dd;
-      text-align: center;
-      padding: 30px 20px;
-      font-size: 0.95rem;
-    }
-    .footer a {
-      color: #a9b1d2;
-      text-decoration: none;
-      font-weight: 500;
-      transition: color 0.3s ease;
-    }
-    .footer a:hover {
-      color: #ffffff;
-      text-decoration: underline;
-    }
-
-    /* Responsive */
+    /* Responsive Design */
     @media (max-width: 768px) {
-      .header h1 { font-size: 2rem; }
-      .section { padding: 30px 20px; }
-      .section h2 { font-size: 1.6rem; }
-      .exp-card, .project-card { padding: 18px; }
-      .btn { padding: 9px 18px; }
+      .header {
+        padding: 80px 0 40px;
+      }
+
+      .header h1 {
+        font-size: 2.2rem;
+      }
+
+      .section {
+        margin-bottom: 60px;
+        padding: 0 15px;
+      }
+
+      .section h2 {
+        font-size: 1.8rem;
+      }
+
+      .exp-card, .project-card {
+        padding: 25px;
+      }
+
+      .container {
+        width: 95%;
+      }
     }
+
     @media (max-width: 480px) {
-      .header { padding: 40px 15px; }
-      .header h1 { font-size: 1.8rem; }
-      .section { padding: 25px 15px; }
-      .footer { padding: 20px; font-size: 0.9rem; }
+      .header h1 {
+        font-size: 1.8rem;
+      }
+
+      .location {
+        font-size: 1rem;
+      }
+
+      .tagline {
+        font-size: 1rem;
+      }
+
+      .section h2 {
+        font-size: 1.6rem;
+      }
+
+      .exp-cards, .project-cards {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -300,7 +462,6 @@
             <img src="https://cdn.simpleicons.org/mysql" alt="mysql" title="mysql">
             <img src="https://cdn.simpleicons.org/html5" alt="html" title="html">
             <img src="https://simpleicons.org/icons/css.svg" alt="css" title="css">
-
           </div>
         </div>
 
@@ -330,7 +491,6 @@
             <img src="https://cdn.simpleicons.org/mysql" alt="mysql" title="mysql">
             <img src="https://cdn.simpleicons.org/html5" alt="html" title="html">
             <img src="https://simpleicons.org/icons/css.svg" alt="css" title="css">
-
           </div>
         </div>
 
@@ -349,7 +509,7 @@
             Proyecto académico que simula acciones en una bitácora de transacciones para entornos de desarrollo colaborativo.
           </p>
           <p class="tech"><strong>Tecnologías:</strong> PHP, MySQL, CSS</p>
-          <a href="https://github.com/btabdonpi/Sistema-bitacora " target="_blank" class="btn">Ver en GitHub</a>
+          <a href="https://github.com/btabdonpi/Sistema-bitacora" target="_blank" class="btn">Ver en GitHub</a>
         </div>
 
         <!-- Proyecto 2 (Plantilla) -->
@@ -373,7 +533,6 @@
              style="padding: 10px 20px; background-color: #ccc; color: #666; text-decoration: none; border-radius: 5px; display: inline-block; pointer-events: none; cursor: not-allowed; box-shadow: none; opacity: 0.6;">
              En desarrollo
           </a>
-
         </div>
 
       </div>
